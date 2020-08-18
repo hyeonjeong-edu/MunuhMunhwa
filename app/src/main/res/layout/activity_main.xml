@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LLtitle"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="17dp"
+            android:text="문어문화"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/imgLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp"
+            android:textColor="#080000"
+            android:lineSpacingExtra="9.8sp"
+            />
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/LLtitle"
+            app:srcCompat="@drawable/logo_small" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/LLSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/LLtitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingLeft="12.5dp"
+        android:paddingTop="3dp"
+        android:paddingRight="12.5dp"
+        android:paddingBottom="3dp">
+
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="검색어를 입력해주세요"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvKeyword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12.5dp"
+        android:textColor="#069efa"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/LLSearch"
+        android:text="# 인기 키워드" />
+
+    <HorizontalScrollView
+        android:id="@+id/svCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/tvKeyword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <LinearLayout
+            android:id="@+id/LLcard"
+            android:layout_width="match_parent"
+            android:layout_height="113.5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="12.5dp"
+            android:layout_margin="3dp"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvTag1"
+                android:layout_width="212.5dp"
+                android:layout_height="103.4dp"
+                android:foregroundGravity="left"
+                android:layout_marginRight="4dp"
+                app:cardBackgroundColor="#e3edff"
+                app:cardCornerRadius="16dp">
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvTag2"
+                android:layout_width="212.5dp"
+                android:layout_height="103.4dp"
+                android:foregroundGravity="left"
+                android:layout_marginLeft="3dp"
+                app:cardBackgroundColor="#ffe3e3"
+                app:cardCornerRadius="16dp">
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="6.8sp"
+        android:paddingLeft="12.5dp"
+        android:paddingTop="13dp"
+        android:paddingRight="12.5dp"
+        android:paddingBottom="13dp"
+        android:text="Top 5 문화이벤트"
+        android:textColor="#000000"
+        android:textSize="20.8sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/svCard" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
