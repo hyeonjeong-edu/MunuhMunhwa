@@ -7,7 +7,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="문어문화"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

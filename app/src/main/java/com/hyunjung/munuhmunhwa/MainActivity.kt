@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
         binding.rvContent.layoutManager = LinearLayoutManager(this)
         binding.rvContent.adapter = adapter
 
-        binding.btnFilter.isEnabled = true
+        binding.btnSearch.isEnabled = true
 
-        // 필터 버튼 클릭 시 실행
-        binding.btnFilter.setOnClickListener {
+        // 검색 버튼 클릭 시 실행
+        binding.btnSearch.setOnClickListener {
             Toast.makeText(this, "버튼이 눌렸습니다", Toast.LENGTH_SHORT).show()
             var resultIntent = Intent(this, ResultActivity::class.java)
             startActivity(resultIntent)

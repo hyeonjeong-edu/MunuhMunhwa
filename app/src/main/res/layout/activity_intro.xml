@@ -16,8 +16,9 @@
         android:layout_marginLeft="32.5dp"
         android:layout_marginTop="80dp"
         android:text="이번엔\n어디로\n놀러 가볼까?"
+        android:lineSpacingExtra="2.5sp"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="visible" />
 

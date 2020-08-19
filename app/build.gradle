@@ -45,4 +45,9 @@ dependencies {
     // 글라이드 - 이미지 처리
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //flowlayout
+    implementation 'com.wefika:flowlayout:0.4.1'
 }
+
+configurations { implementation.exclude group: 'org.jetbrains', module: 'annotations' }
