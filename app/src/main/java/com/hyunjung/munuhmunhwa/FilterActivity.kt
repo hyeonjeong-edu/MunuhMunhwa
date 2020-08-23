@@ -40,6 +40,8 @@ class FilterActivity : AppCompatActivity() {
                 resultIntent.putExtra("place", place)
                 resultIntent.putExtra("genre",genre)
                 resultIntent.putExtra("fee", fee)
+                //로딩화면
+                LoadingDialog(this).show()
                 startActivity(resultIntent)
                 finish()
             }

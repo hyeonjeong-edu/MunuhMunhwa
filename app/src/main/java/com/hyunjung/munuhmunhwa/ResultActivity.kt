@@ -22,8 +22,6 @@ class ResultActivity : AppCompatActivity() {
         var genre = getIntent().getIntExtra("genre", 8)
         var fee = getIntent().getIntExtra("fee", 12)
 
-        println("Result Activity: $age, $gender, $place, $genre, $fee")
-
         // 데이터 추가
         Thread({
             var apiContent = ApiContent()

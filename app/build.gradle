@@ -48,6 +48,7 @@ dependencies {
 
     //flowlayout
     implementation 'com.wefika:flowlayout:0.4.1'
+
 }
 
 configurations { implementation.exclude group: 'org.jetbrains', module: 'annotations' }

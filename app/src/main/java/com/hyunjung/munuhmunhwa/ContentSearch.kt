@@ -8,14 +8,15 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.RuntimeException
 import java.lang.StringBuilder
+import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
 
-class ContentSearch{
+class ContentSearch(age:Int, gender:Int, place:String, genre:Int, fee:Int){
     var contentItems = ArrayList<ContentItem>()
     var adapter = ContentAdapter(contentItems)
 
-    val queryurl = "http://openapi.seoul.go.kr:8088/4455464864646e66363045525a4766/json/culturalEventInfo/1/63/"
+    val queryurl = "https://automl.googleapis.com/v1beta1/projects/saiki-200813/locations/us-central1/models/TBL4476826519234150400:predict"
 
     fun main(): ContentAdapter{
         // URL 연결해오기
@@ -30,8 +31,22 @@ class ContentSearch{
         var responseBody: String =""
         try{
             val url = URL(apiUrl)
-            val `in` = url.openStream()
-            responseBody = readBody(`in`)
+            val conn = url.openConnection() as HttpURLConnection
+            conn.requestMethod = "POST"
+            conn.setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            /*
+            * json object 만들기
+            val jsonObject = buildJsonObject()
+
+            // json content 만든거를 post resquest body에 붙이기
+            setPostRequestContent(conn, jsonObject)*/
+
+            // post 로 url 요청 보내기
+            conn.connect()
+
+            // 응답 받은 메시지
+            responseBody = conn.responseMessage + ""
+
         }catch (e: MalformedURLException){
             e.printStackTrace()
         }
@@ -78,7 +93,7 @@ class ContentSearch{
                 if(image.contains("www"))
                     image = image.replace("http://culture.seoul.go.kr","")
 
-                /** 타이틀에 html 인코딩이 잘 못 되어있을 경우 수정해주기*/
+                /** 타이틀에 html 인코딩이 포함 되어있을 경우 수정해주기*/
                 if(title.contains('&')){
                     if(title.contains("&nbsp"))
                         title = title.replace("&nbsp;", " ")
