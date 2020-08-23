@@ -24,16 +24,21 @@
 
         <TextView
             android:id="@+id/tvContentTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginRight="20dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
             app:layout_constraintBottom_toBottomOf="@id/linearLayout"
             app:layout_constraintLeft_toLeftOf="@id/linearLayout"
+            app:layout_constraintRight_toRightOf="@+id/linearLayout"
             android:text="손열음 피아노 리사이틀"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
+            android:background="#99000000"
              />
 
         <TextView
@@ -41,11 +46,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:text="2020.08.30~2020.08.30"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@id/tvContentTitle"
             app:layout_constraintLeft_toLeftOf="@id/linearLayout"
             android:textColor="#ffffff"
+            android:background="#99000000"
             android:lineSpacingExtra="3.5sp"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

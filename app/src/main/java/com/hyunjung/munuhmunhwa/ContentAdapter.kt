@@ -30,7 +30,7 @@ class ContentAdapter(var contentItems: ArrayList<ContentItem>) : RecyclerView.Ad
             .with(App.instance)
             .load(contentItems[position].img)
                 //.centerCrop()
-            .placeholder(R.drawable.kakao_talk_photo_2020_08_16_17_09_19)
+            .placeholder(R.drawable.logo_small)
             .into(holder.binding?.imgContent!!)
     }
 

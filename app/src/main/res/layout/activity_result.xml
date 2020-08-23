@@ -6,7 +6,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ResultActivity"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvFilterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="6dp"
+            android:lineSpacingExtra="9.8sp"
+            android:padding="5dp"
+            android:text="나에게 맞는 문화행사 찾기"
+            android:textColor="#080000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="#29000000"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvContent"

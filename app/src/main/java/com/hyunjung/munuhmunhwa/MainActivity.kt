@@ -24,19 +24,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        adapter = ContentAdapter(contentItems)
         binding.rvContent.layoutManager = LinearLayoutManager(this)
-        binding.rvContent.adapter = adapter
+
+        // 데이터 추가
+        Thread({
+            var apiContent = ApiContent()
+            adapter = apiContent.main()
+            runOnUiThread {
+                binding.rvContent.adapter = adapter
+            }
+        }).start()
 
         binding.btnSearch.isEnabled = true
 
         // 검색 버튼 클릭 시 실행
         binding.btnSearch.setOnClickListener {
-            Toast.makeText(this, "버튼이 눌렸습니다", Toast.LENGTH_SHORT).show()
-            var resultIntent = Intent(this, ResultActivity::class.java)
-            startActivity(resultIntent)
-            finish()
+            var filterIntent = Intent(this, FilterActivity::class.java)
+            startActivity(filterIntent)
         }
     }
 
